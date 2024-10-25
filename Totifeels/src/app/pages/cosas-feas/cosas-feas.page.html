@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <div class="cosas-feas">
+    <ion-card class="card-fotos" *ngIf="!spinnerMostrandose">
+      <ion-list class="lista-fotos">
+        <ion-item class="item-foto" *ngFor="let cosaFea of this.fotos; let i = index"> 
+          <!-- <p class="foto"> -->
+            <div class="foto">
+              <h1 class="autor">Foto subida por: {{cosaFea.autor}}</h1>
+              <img class="imagen" src={{cosaFea.foto}}>
+              <ion-row class="descripcion">
+                <ion-button 
+                class="btn-votar" 
+                *ngIf="!cosaFea.reaccionUsuarios.includes(this.userService.ObtenerNombreUsuario())" 
+                (click)="this.fireStoreService.VotarFoto('cosas-feas', cosaFea.foto, this.userService.ObtenerNombreUsuario())">
+                <ion-icon name="heart-outline"></ion-icon>
+              </ion-button>
+              
+              <ion-button 
+              class="btn-votar" 
+              *ngIf="cosaFea.reaccionUsuarios.includes(this.userService.ObtenerNombreUsuario())">
+              <ion-icon name="heart"></ion-icon>            
+            </ion-button>
+            <p class="info-likes">Interacciones: {{cosaFea.interacciones}}</p>
+            <p class="info-fecha">Fecha de subida: {{cosaFea.fecha}}</p>          
+          </ion-row>  
+        </div>
+          <!-- </p> -->
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+  
+  <ion-row *ngIf="spinnerMostrandose == true" class="contenedor-spinner">
+    <ion-col>
+      <ion-spinner name="circular" class="spinner" color="light"></ion-spinner>
+      <img class="img-spinner" src="../../../assets/imgs/icon-only.png">
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-fab class="fab-volver" vertical="top" horizontal="start" slot="fixed" routerLink="/home" *ngIf="!this.spinnerMostrandose">
+  <ion-fab-button color="light">
+    <ion-icon name="arrow-back-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab class="fab-subir-fotos" vertical="top" horizontal="end" slot="fixed" (click)="this.imagenesService.GuardarFoto('cosas-feas')" *ngIf="!this.spinnerMostrandose">
+  <ion-fab-button color="light">
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

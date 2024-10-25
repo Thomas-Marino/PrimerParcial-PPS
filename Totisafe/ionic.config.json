@@ -1,0 +1,7 @@
+{
+  "name": "Totisafe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

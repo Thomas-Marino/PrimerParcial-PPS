@@ -1,0 +1,7 @@
+{
+  "name": "Totivinanza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

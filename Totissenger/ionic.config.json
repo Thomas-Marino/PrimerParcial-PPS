@@ -1,0 +1,7 @@
+{
+  "name": "Totissenger",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
