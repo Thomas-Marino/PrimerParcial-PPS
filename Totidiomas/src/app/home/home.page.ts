@@ -3,20 +3,6 @@ import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
 import { authResponse, AuthService } from 'src/app/services/auth.service';
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyANLECTzGkEXW17Bu1R25gmz-mV0d48WQI",
-  authDomain: "Totidiomas-glg.firebaseapp.com",
-  databaseURL: "https://Totidiomas-glg-default-rtdb.firebaseio.com",
-  projectId: "Totidiomas-glg",
-  storageBucket: "Totidiomas-glg.appspot.com",
-  messagingSenderId: "891056861955",
-  appId: "1:891056861955:web:02baff4106dd0635f12f36",
-};
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
